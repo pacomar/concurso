@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title>Preguntas Informática</title>
+	<link rel="stylesheet" href="{{STATIC_URL}}css/lib/bootstrap.css">
+	<script src="{{STATIC_URL}}js/libs/jquery-2.1.0.js"></script>
+	<script src="{{STATIC_URL}}js/libs/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="{{STATIC_URL}}css/lib/bootstrap-responsive.css">
+	<link rel="stylesheet" href="{{STATIC_URL}}css/inicio.css">
+</head>
+<body>
+	<a href="/ranking/">Ranking</a>
+	<div class="container" id="wrapper">
+		<form action="/comienza/" method="post">{% csrf_token %}
+			<input type="text" name="nombre" id="nombre" placeholder="Nombre del participante" focused>
+			<input type="submit" value = "Empezar" class="btn btn-primary" id="boton_empieza">
+		</form>
+	</div>
+</body>
+</html>

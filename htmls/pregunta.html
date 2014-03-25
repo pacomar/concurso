@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title>Preguntas Informática</title>
+	<link rel="stylesheet" href="{{STATIC_URL}}css/lib/bootstrap.css">
+	<script src="{{STATIC_URL}}js/libs/jquery-2.1.0.js"></script>
+	<script src="{{STATIC_URL}}js/libs/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="{{STATIC_URL}}css/lib/bootstrap-responsive.css">
+	<link rel="stylesheet" href="{{STATIC_URL}}css/inicio.css">
+</head>
+<body>
+	Juega: {{concurso.nombre}}
+	<div class="container" id="wrapper">
+		<div id="pregunta">{{pregunta.pregunta}}</div> <br>
+		<a href="/responde/{{concurso.id}}/{{pregunta.id}}/1" class="btn btn-primary boton_pregunta">{{pregunta.res1}}</a>
+		<a href="/responde/{{concurso.id}}/{{pregunta.id}}/2" class="btn btn-primary boton_pregunta">{{pregunta.res2}}</a> <br>
+		<a href="/responde/{{concurso.id}}/{{pregunta.id}}/3" class="btn btn-primary boton_pregunta">{{pregunta.res3}}</a>
+		<a href="/responde/{{concurso.id}}/{{pregunta.id}}/4" class="btn btn-primary boton_pregunta">{{pregunta.res4}}</a> <br>
+		<div id="puntos">
+			Actual: {{concurso.preguntas.all|length}}/20 <br>
+			Correctas: {{concurso.puntuacion}} <br>
+		</div>
+		<a href="/termina/{{concurso.id}}" class="btn btn-primary boton_terminar">Terminar</a>
+	</div>
+</body>
+</html>

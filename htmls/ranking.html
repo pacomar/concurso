@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title>Preguntas Informática</title>
+	<link rel="stylesheet" href="{{STATIC_URL}}css/lib/bootstrap.css">
+	<script src="{{STATIC_URL}}js/libs/jquery-2.1.0.js"></script>
+	<script src="{{STATIC_URL}}js/libs/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="{{STATIC_URL}}css/lib/bootstrap-responsive.css">
+	<link rel="stylesheet" href="{{STATIC_URL}}css/inicio.css">
+</head>
+<body>
+	<a href="/comienza">Nuevo</a> 
+	<div class="container" id="wrapper">
+		<ul id="texto_ranking">
+			<li>Nombre</li>
+			<li>Puntuacion</li>
+			<li>Tiempo</li>
+			<li>Dia</li>
+		</ul>
+		<ol id="ranking">
+			{% for res in resultados %}
+				<li class="{% cycle 'azul' 'verde' %}">
+					<ul>
+						<li>{{res.nombre}}</li>
+						<li>{{res.puntuacion}}</li>
+						<li>{{res.duracion}}</li>
+						<li>{{res.hora_fin|date:"d M, Y" }}</li>
+					</ul>
+				</li>
+			{% endfor %}
+		</ol>
+	</div>
+</body>
+</html>
