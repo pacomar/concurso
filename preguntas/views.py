@@ -30,7 +30,7 @@ def nueva_pregunta(request):
 	if request.method=='POST':
 		formulario=PreguntaForm(request.POST)
 		if formulario.is_valid():
-			formualrio.save()
+			formulario.save()
 			return redirect('/nueva')
 	else:
 		formulario = PreguntaForm()
