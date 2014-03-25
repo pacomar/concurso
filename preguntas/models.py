@@ -23,7 +23,7 @@ class Pregunta(models.Model):
 	dificultad = models.CharField(max_length=200, choices=DIFICULTADES)
 
 	def __unicode__(self):
-		return self.pregunta
+		return self.pregunta+" "+self.dificultad
 
 class Concurso(models.Model):
 	comodin = models.BooleanField(default=True)
