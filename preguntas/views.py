@@ -40,13 +40,13 @@ def nueva_pregunta(request):
 def siguiente_pregunta(request, id_concurso):
 	con = get_object_or_404(Concurso, id = id_concurso)
 	if not con.terminado:
-		if len(con.preguntas.all()) < 6:
+		if len(con.preguntas.all()) < 5:
 			pres = Pregunta.objects.filter(dificultad='1').exclude(id__in=con.preguntas.all())
-		elif len(con.preguntas.all()) < 11:
+		elif len(con.preguntas.all()) < 10:
 			pres = Pregunta.objects.filter(dificultad='2').exclude(id__in=con.preguntas.all())
-		elif len(con.preguntas.all()) < 16:
+		elif len(con.preguntas.all()) < 15:
 			pres = Pregunta.objects.filter(dificultad='3').exclude(id__in=con.preguntas.all())
-		elif len(con.preguntas.all()) < 20:
+		elif len(con.preguntas.all()) < 19:
 			pres = Pregunta.objects.filter(dificultad='4').exclude(id__in=con.preguntas.all())
 		else:
 			return redirect('/termina/'+str(con.id))
