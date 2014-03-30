@@ -61,8 +61,23 @@ def siguiente_pregunta(request, id_concurso):
 		return redirect('/')
 
 def ranking(request):
+	cons = Concurso.objects.order_by('-puntuacion', 'duracion')
+	dias = []
+	for c in cons:
+		dias.append(c.hora_fin.date())
+	dias = set(dias)
 	cons = Concurso.objects.order_by('-puntuacion', 'duracion')[:30]
-	ctx = {'resultados':cons}
+	ctx = {'resultados':cons, 'dias':dias}
+	return render(request, 'ranking.html', ctx)
+
+def ranking_dia(request, dia, mes, ano):
+	cons = Concurso.objects.order_by('-puntuacion', 'duracion')[:30]
+	dias = []
+	for c in cons:
+		dias.append(c.hora_fin.date())
+	dias = set(dias)
+	cons = Concurso.objects.filter(hora_fin__day=int(dia), hora_fin__month=int(mes), hora_fin__year=int(ano)).order_by('-puntuacion', 'duracion')[:30]
+	ctx = {'resultados':cons, 'dias':dias}
 	return render(request, 'ranking.html', ctx)
 
 def responde(request, id_concurso, pregunta_id, pregunta_res):

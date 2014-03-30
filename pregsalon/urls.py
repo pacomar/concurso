@@ -10,6 +10,7 @@ urlpatterns = patterns('',
 	url(r'^responde/(?P<id_concurso>\d+)/(?P<pregunta_id>\d+)/(?P<pregunta_res>\d+)/$','preguntas.views.responde'),
 	url(r'^termina/(?P<id_concurso>\d+)$','preguntas.views.terminar'),
 	url(r'^ranking/$','preguntas.views.ranking'),
+	url(r'^ranking/(?P<dia>\d+)/(?P<mes>\d+)/(?P<ano>\d+)/$','preguntas.views.ranking_dia'),
 	url(r'^nueva/$', 'preguntas.views.nueva_pregunta'),
 	# url(r'^blog/', include('blog.urls')),
 
